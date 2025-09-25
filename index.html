@@ -238,8 +238,8 @@
         const nextPeriod = (BigInt(latest.issueNumber) + 1n).toString();
         document.getElementById("period").textContent = nextPeriod;
 
-        // শেষ 25 History দেখে ট্রেন্ড
-        const historyList = data?.data?.list?.slice(0, 25) || [];
+        // শেষ 16 History দেখে ট্রেন্ড
+        const historyList = data?.data?.list?.slice(0, 16) || [];
         let bigCount = 0, smallCount = 0;
         historyList.forEach(item => {
           let num = Number(item.number);
@@ -251,7 +251,7 @@
         if (smallCount > bigCount) prediction = "SMALL";
         else if (smallCount === bigCount) prediction = Math.random() > 0.5 ? "BIG" : "SMALL";
 
-        let confidence = Math.round((Math.max(bigCount, smallCount) / historyList.length) * 200);
+        let confidence = Math.round((Math.max(bigCount, smallCount) / historyList.length) * 100);
 
         // Prediction UI Update
         const predEl = document.getElementById("prediction");

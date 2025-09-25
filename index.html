@@ -238,8 +238,8 @@
         const nextPeriod = (BigInt(latest.issueNumber) + 1n).toString();
         document.getElementById("period").textContent = nextPeriod;
 
-        // শেষ 16 History দেখে ট্রেন্ড
-        const historyList = data?.data?.list?.slice(0, 16) || [];
+        // শেষ 60 History দেখে ট্রেন্ড
+        const historyList = data?.data?.list?.slice(0, 60) || [];
         let bigCount = 0, smallCount = 0;
         historyList.forEach(item => {
           let num = Number(item.number);
